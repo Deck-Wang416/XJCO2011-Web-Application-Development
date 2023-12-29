@@ -1,0 +1,33 @@
+<div class="search-box">
+    <div class="bookdirect-flex">
+        <div class="bookdirect-icon">
+            <img src="{{ url_for('static', filename='/images/icon-bookdirect.jpg') }}" alt="Book Direct">
+        </div>
+        <p>Book directly for the best rate, guaranteed. Only via official website.</p>
+    </div>
+
+    <div class="input-container">
+        <i class="fas fa-search search-icon"></i>
+        <input tabindex="0" type="text" placeholder="Find the City of Hotels" id="cityInput" class="search-input" autocomplete="off">
+    </div>
+
+    <div id="cityDropdown" class="city-dropdown"></div>
+    
+    <div class="input-container">
+        <i class="fas fa-calendar-alt calendar-icon"></i>
+        <input tabindex="0" type="text" placeholder="Check-in Date" id="checkInInput" class="search-input" autocomplete="off">
+    </div>
+
+    <div class="input-container">
+        <i class="fas fa-calendar-alt calendar-icon"></i>
+        <input tabindex="0" type="text" placeholder="Check-out Date" id="checkOutInput" class="search-input" autocomplete="off">
+    </div>
+
+    <button tabindex="0" class="search-btn" >Search</button>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/css/datepicker.min.css">
+
+<script src="https://cdn.jsdelivr.net/npm/vanillajs-datepicker@1.3.4/dist/js/datepicker-full.min.js"></script>
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>

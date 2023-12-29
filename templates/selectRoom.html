@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Room</title>
+    <link rel="icon" href="{{ url_for('static', filename='/images/icon-bookdirect.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% include 'nav.html' %}
+    
+    <div class="progress-indicator">
+        <div class="progress-bar">
+            <div class="progress-step y-dot y-line">Find Hotel</div>
+            <div class="progress-step y-dot">Find Room</div>
+            <div class="progress-step">Reviewing</div>
+        </div>
+    </div>
+
+    <div class="select-searchbox">
+        {% include 'searchbox.html' %}
+    </div>
+
+    <div class="filter-container">
+        <h3>Filter Your Result</h3>
+        <div class="filter-group">
+            <span class="filter-type">Room Type:</span>
+            <div class="filter-option filter-pc" data-type="room_type">Deluxe Room</div>
+            <div class="filter-option filter-pc" data-type="room_type">Executive Suite</div>
+            <div class="filter-option filter-mobile" data-type="room_type">Deluxe</div>
+            <div class="filter-option filter-mobile" data-type="room_type">Executive</div>
+        </div>
+        <div class="filter-group">
+            <span class="filter-type">Bed Type:</span>
+            <div class="filter-option" data-type="bed_type">King Size</div>
+            <div class="filter-option" data-type="bed_type">Twin Beds</div>
+        </div>
+        <hr class="filter-divider"/>
+        <div class="selected-filters" id="selected-filters"></div>
+    </div>
+
+    <div class="hotel-list"></div>
+
+    <script src="{{ url_for('static', filename='filter.js') }}"></script>
+
+    <script type="text/javascript">
+        var hotel_id = "{{ hotel_id }}";
+    </script>
+    
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>

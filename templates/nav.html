@@ -1,0 +1,22 @@
+<div class="transparent-nav">
+    <a tabindex="1" href="{{ url_for('homepage') }}">Home</a>
+    {% if user_logged_in %}
+        <a tabindex="0" href="{{ url_for('userCenter') }}">Mine</a>
+        <a tabindex="0" href="#" onclick="confirmSignOut()">Logout</a>
+        {% if admin_logged_in %}
+            <a tabindex="0" href="{{ url_for('userInfor') }}">User</a>
+            <a tabindex="0" href="{{ url_for('orderInfor') }}">Order</a>
+            <a tabindex="0" href="{{ url_for('inventory') }}">Stock</a>
+            <a tabindex="0" href="{{ url_for('logs') }}">Logs</a>
+        {% endif %}
+    {% else %}
+        <a tabindex="0" href="{{ url_for('signIn') }}">Sign In</a>
+        <a tabindex="0" href="{{ url_for('joinNow') }}">Join Now</a>
+    {% endif %}
+</div>
+
+<script>
+    var signOutUrl = "{{ url_for('signOut') }}";
+</script>
+
+<script src="{{ url_for('static', filename='join.js') }}"></script>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Center</title>
+    <link rel="icon" href="{{ url_for('static', filename='/images/icon-bookdirect.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body class="missing-bg">
+    {% include 'nav.html' %}
+
+    <div class="user-header"></div>
+
+    <div class="landing-container">
+        <h1>Sorry, something went wrong!</h1>
+        <h3>The page you are looking for seems to be missing. It might have been removed or renamed.</h3>
+    </div>
+    
+    <div class="title-container">
+        <a tabindex="0" href="{{ url_for('homepage') }}" class="experience-btn">Back to Homepage</a>
+    </div>
+
+</body>
+</html>
+

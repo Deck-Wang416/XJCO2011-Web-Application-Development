@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Order</title>
+    <link rel="icon" href="{{ url_for('static', filename='/images/icon-bookdirect.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% include 'nav.html' %}
+    
+    <div class="progress-indicator">
+        <div class="progress-bar">
+            <div class="progress-step y-dot y-line">Find Hotel</div>
+            <div class="progress-step y-dot y-line">Find Room</div>
+            <div class="progress-step y-dot">Reviewing</div>
+        </div>
+    </div>
+
+    <div class="stay-summary summary-in-review">
+        <div class="order-image">
+            <img src="{{ url_for('static', filename=room_type.image_filename) }}" alt="Room Image">
+        </div>
+        <div class="order-content">
+            <h3>Stay Summary: {{ hotel.name }}, {{ hotel.city }}</h3>
+            <p><strong>Date:</strong> {{ check_in_date }} - {{ check_out_date }}</p>
+            <p><strong>Room Type:</strong> {{ room.room_type.type_name }}</p>
+            <p><strong>Bed Type:</strong> {{ room.bed_type.bed_type }}</p>
+        </div>    
+    </div>
+        
+    <div class="reservation-form-container">
+        <form id="guestInfoForm" action="/submitBooking" method="post">
+            <h2 class="section-header">Guest Information</h2>
+            <input type="hidden" name="room_id" value="{{ room.id }}">
+
+            <div class="review-input-group">
+                <label for="guestFirstName">Given/ First Name *</label>
+                <input tabindex="0" type="text" id="guestFirstName" name="guestFirstName" required placeholder="Same as your ID/Passport" pattern="[A-Za-z]+(\s[A-Za-z]+)*" title="Name must include letters and can contain spaces." value="{{ customer.first_name if customer }}">
+            </div>
+
+            <div class="review-input-group">
+                <label for="guestLastName">Family/ Last Name *</label>
+                <input tabindex="0" type="text" id="guestLastName" name="guestLastName" required placeholder="Same as your ID/Passport" pattern="[A-Za-z]+(\s[A-Za-z]+)*" title="Name must include letters and can contain spaces." value="{{ customer.last_name if customer }}">
+            </div>
+
+            <div class="review-input-group">
+                <label for="guestMobile">Mobile *</label>
+                <input tabindex="0" type="tel" id="guestMobile" name="guestMobile" required placeholder="Your Chinese phone numbers" pattern="\d{11}" title="Mobile number must be 11 digits." value="{{ customer.contact if customer }}">
+            </div>
+
+            <h2 class="section-header">Optional Request</h2>
+            <div class="review-input-group">
+                <label for="specialRequest">Special Request</label>
+                <small>Please let us know of any additional requests to help us ensure you have a comfortable stay.</small>
+                <textarea tabindex="0" id="specialRequest" name="specialRequest" maxlength="300"></textarea>
+            </div>
+
+            <div class="centered-button-wrap">
+                <button tabindex="0" type="submit" class="book-now-btn">Book Now</button>
+            </div>       
+        </form>
+    </div>
+
+    <div id="notification" class="notification">
+        <span id="notification-message">Reservation processing</span>
+    </div>
+
+</body>
+</html>

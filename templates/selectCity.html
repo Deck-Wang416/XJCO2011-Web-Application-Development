@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select City</title>
+    <link rel="icon" href="{{ url_for('static', filename='/images/icon-bookdirect.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% include 'nav.html' %}
+    
+    <div class="progress-indicator">
+        <div class="progress-bar">
+            <div class="progress-step y-dot">Find Hotel</div>
+            <div class="progress-step">Find Room</div>
+            <div class="progress-step">Reviewing</div>
+        </div>
+    </div>
+
+    <div class="select-searchbox">
+        {% include 'searchbox.html' %}
+    </div>
+
+    <div class="hotel-list">
+        {% for hotel in hotels %}
+        <div class="hotel-entry">
+            <img src="{{ url_for('static', filename=hotel.image_filename) }}" alt="{{ hotel.name }}">
+            <div class="hotel-info">
+                <h2>{{ hotel.name }}, {{ hotel.city }}</h2>
+                <p>{{ hotel.description }}</p>
+                <p><strong>ADD:</strong> {{ hotel.address }}</p>
+                <p><strong>TEL:</strong> {{ hotel.phone_number }}</p>
+                <div class="hotel-booking">
+                    <span class="price">CNY {{ hotel.price }}</span>
+                    <a tabindex="0" href="{{ url_for('selectRoom', hotel_id=hotel.id) }}" class="booking-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <p>No hotels found in this city.</p>
+        {% endfor %}
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Center</title>
+    <link rel="icon" href="{{ url_for('static', filename='/images/icon-bookdirect.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body class="usercenter-body">
+    {% include 'nav.html' %}
+
+    <div class="user-header">
+        <div class="user-info">
+            <span class="user-name">{{ user.first_name }} {{ user.last_name }}</span>
+            <span class="user-id"><i class="fas fa-wallet"></i> 0000000{{ user.id }}</span>
+        </div>
+    </div>
+    
+    <div class="user-order">
+        {% for booking in bookings %}
+        <div class="stay-summary summary-in-user">
+            <div class="order-image">
+                <img src="{{ url_for('static', filename=booking.room_type.image_filename) }}" alt="Room Image">
+            </div>
+            <div class="order-content">
+                <h3>Stay Summary: {{ booking.hotel.name }}, {{ booking.hotel.city }}</h3>
+                <p><strong>Date:</strong> {{ booking.check_in_date }} - {{ booking.check_out_date }}</p>
+                <p><strong>Room Type:</strong> {{ booking.room.room_type.type_name }}</p>
+                <p><strong>Bed Type:</strong> {{ booking.room.bed_type.bed_type }}</p>
+                <p><strong>Comment:</strong> {{ booking.special_request }}</p>
+            </div>    
+        </div>
+        {% else %}
+        <div class="stay-summary none-summary-in-user">
+            <p>There is no order found currently.</p>
+        </div>
+        {% endfor %}
+    </div>
+   
+    <div class="benefits-section-join benefits-section-usercenter">
+        <h2>Join The Hotel Circle Today</h2>
+        <p>To enjoy member benefits, exclusive member rate and more.</p>
+        <div class="benefits-icons">
+            <div class="benefit-join">
+                <img src="{{ url_for('static', filename='/images/bottom1.jpg') }}" alt="Exclusive Offers">
+                <p>Member Exclusive Offers</p>
+            </div>
+            <div class="benefit-join">
+                <img src="{{ url_for('static', filename='/images/bottom2.jpg') }}" alt="Mobile Check-In">
+                <p>Mobile Check-In & -Out</p>
+            </div>
+            <div class="benefit-join">
+                <img src="{{ url_for('static', filename='/images/bottom3.jpg') }}" alt="Children Eat Free">
+                <p>Children Eat Free</p>
+            </div>
+            <div class="benefit-join">
+                <img src="{{ url_for('static', filename='/images/bottom4.jpg') }}" alt="Earn Nights">
+                <p>Earn Free Nights</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

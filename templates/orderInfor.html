@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Information</title>
+    <link rel="icon" href="{{ url_for('static', filename='/images/icon-bookdirect.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="admin-bg">
+    {% include 'nav.html' %}
+
+    <div class="user-header"></div>
+
+    <div class="table-container">
+        <h2>Booking Information</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Room Type</th>
+                    <th>Bed Type</th>
+                    <th>Contact</th>
+                    <th>Check-In</th>
+                    <th>Check-Out</th>
+                    <th class="request-column">Request</th>
+                    <th>Operate</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                    <tr>
+                        <td>{{ booking.id }}</td>
+                        <td>{{ booking.room.room_type.type_name }}</td>
+                        <td>{{ booking.room.bed_type.bed_type }}</td>
+                        <td>{{ booking.customer.contact }}</td>
+                        <td>{{ booking.check_in_date.strftime('%Y-%m-%d') }}</td>
+                        <td>{{ booking.check_out_date.strftime('%Y-%m-%d') }}</td>
+                        <td class="request-column">{{ booking.special_request }}</td>
+                        <td>
+                            <form action="{{ url_for('delete_order', order_id=booking.id) }}" method="post">
+                                <input tabindex="0" type="submit" class="admin-submit-btn" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

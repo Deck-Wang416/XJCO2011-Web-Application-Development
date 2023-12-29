@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deck Qulity Hotels</title>
+    <link rel="icon" href="{{ url_for('static', filename='/images/icon-bookdirect.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="hero-image">
+        {% include 'nav.html' %} 
+        
+        <div class="search-area">
+            <h1 class="search-area-title">Capture Autumn's Timeless Charm</h1><br>
+            <p class="search-area-title">Explore our wonderful autumn destinations</p><br>
+            {% include 'searchbox.html' %} 
+        </div>
+    </div>
+
+    <div class="benefits-section-home">
+        <h2>A World of Rewards and Privileges Awaits</h2>
+        <p>Whether you're here for a bite or a string of nights, join as a member to enjoy exclusive benefits and a seamless digital experience.</p>
+
+        {% if user_logged_in %}
+        <a tabindex="0" href="{{ url_for('userCenter') }}" class="join-btn">Learn More</a> 
+        {% else %}
+        <a tabindex="0" href="{{ url_for('joinNow') }}" class="join-btn">Join Now</a>
+        {% endif %}
+    
+        <div class="benefits-icons">
+            <div class="benefit-home">
+                <img src="{{ url_for('static', filename='/images/bottom1.jpg') }}" alt="Exclusive Offers">
+                <p>Member Exclusive Offers</p>
+            </div>
+            <div class="benefit-home">
+                <img src="{{ url_for('static', filename='/images/bottom2.jpg') }}" alt="Mobile Check-In">
+                <p>Mobile Check-In & -Out</p>
+            </div>
+            <div class="benefit-home">
+                <img src="{{ url_for('static', filename='/images/bottom3.jpg') }}" alt="Children Eat Free">
+                <p>Children Eat Free</p>
+            </div>
+            <div class="benefit-home">
+                <img src="{{ url_for('static', filename='/images/bottom4.jpg') }}" alt="Earn Nights">
+                <p>Earn Free Nights</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+    
+</body>
+</html>

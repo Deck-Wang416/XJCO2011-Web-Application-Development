@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="icon" href="{{ url_for('static', filename='/images/icon-bookdirect.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% include 'nav.html' %}
+    
+    <div class="benefits-section-join">
+        <h2>Join The Hotel Circle Today</h2>
+        <p>To enjoy member benefits, exclusive member rate and more.</p>
+        <div class="benefits-icons">
+            <div class="benefit-join">
+                <img src="{{ url_for('static', filename='/images/bottom1.jpg') }}" alt="Exclusive Offers">
+                <p>Member Exclusive Offers</p>
+            </div>
+            <div class="benefit-join">
+                <img src="{{ url_for('static', filename='/images/bottom2.jpg') }}" alt="Mobile Check-In">
+                <p>Mobile Check-In & -Out</p>
+            </div>
+            <div class="benefit-join">
+                <img src="{{ url_for('static', filename='/images/bottom3.jpg') }}" alt="Children Eat Free">
+                <p>Children Eat Free</p>
+            </div>
+            <div class="benefit-join">
+                <img src="{{ url_for('static', filename='/images/bottom4.jpg') }}" alt="Earn Nights">
+                <p>Earn Free Nights</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-wrapper">
+        <form id="signInForm">
+            <div class="form-group">
+                <label for="mobile">Mobile *</label>
+                <input type="tel" id="mobile" name="mobile" required placeholder="Your Chinese phone numbers" pattern="\d{11}" title="Mobile number must be 11 digits.">
+            </div>
+            <div class="form-group">
+                <label for="password">Password *</label>
+                <input type="password" id="password" name="password" required pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}" title="Please enter a valid password.">
+                <small>*Prompt: Your password contained at least 8 characters, with a combination of English letters (a - z, A - Z) and numeric digits (0 - 9). At least one of the characters was a numeric digit.</small>
+            </div>
+            <div class="form-group">
+                <input type="submit" id="signInSubmit" class="submit-btn" value="Sign In">
+            </div>
+        </form>
+    </div>
+
+    <div id="notification" class="notification">
+        <span id="notification-message">Reservation processing</span>
+    </div>
+    
+</body>
+</html>
