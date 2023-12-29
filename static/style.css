@@ -899,6 +899,10 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 }
 
 @media (max-width: 500px) {
+    .search-box {
+        padding: 20px 10px;
+    }
+    
     .hotel-entry img {
         flex-shrink: 0;
         width: 330px;
