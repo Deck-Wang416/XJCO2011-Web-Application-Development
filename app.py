@@ -94,11 +94,11 @@ def forge():
     # Sample data for hotels in different cities
     hotels_data = [
         {
-            'name': 'CBD Shangri-La',
+            'name': 'CBD ShangLari',
             'city': 'Beijing, China',
             'address': 'No 1 Jianguomenwai Avenue, Beijing China',
             'phone_number': '(86 10) 6505 2266',
-            'description': 'The Shangri-La Beijing is ideally located at '
+            'description': 'The ShangLari Beijing is ideally located at '
                            'the heart of Beijing\'s diplomatic '
                            'and central business district.',
             'image_filename': 'images/hotel1.jpg',
@@ -106,11 +106,11 @@ def forge():
         },
 
         {
-            'name': 'CBD Shangri-La',
+            'name': 'CBD ShangLari',
             'city': 'Shanghai, China',
             'address': 'No 2 Jianguomenwai Avenue, Shanghai China',
             'phone_number': '(86 10) 6505 2266',
-            'description': 'The Shangri-La Shanghai is ideally located at '
+            'description': 'The ShangLari Shanghai is ideally located at '
                            'the heart of Shanghai\'s diplomatic '
                            'and central business district.',
             'image_filename': 'images/hotel1.jpg',
@@ -118,11 +118,11 @@ def forge():
         },
 
         {
-            'name': 'CBD Shangri-La',
+            'name': 'CBD ShangLari',
             'city': 'Guangzhou, China',
             'address': 'No 3 Jianguomenwai Avenue, Guangzhou China',
             'phone_number': '(86 10) 6505 2266',
-            'description': 'The Shangri-La Guangzhou is ideally located at '
+            'description': 'The ShangLari Guangzhou is ideally located at '
                            'the heart of Guangzhou\'s diplomatic '
                            'and central business district.',
             'image_filename': 'images/hotel2.jpg',
@@ -130,11 +130,11 @@ def forge():
         },
 
         {
-            'name': 'CBD Shangri-La',
+            'name': 'CBD ShangLari',
             'city': 'Tianjin, China',
             'address': 'No 4 Jianguomenwai Avenue, Tianjin China',
             'phone_number': '(86 10) 6505 2266',
-            'description': 'The Shangri-La Tianjin is ideally located at '
+            'description': 'The ShangLari Tianjin is ideally located at '
                            'the heart of Tianjin\'s diplomatic '
                            'and central business district.',
             'image_filename': 'images/hotel2.jpg',
@@ -168,7 +168,7 @@ def forge():
                 )
                 db.session.add(room)
 
-                if hotel.name == 'CBD Shangri-La' and \
+                if hotel.name == 'CBD ShangLari' and \
                    hotel.city == 'Tianjin, China' and \
                    rt.type_name == 'Executive Suite' and \
                    bt.bed_type == 'King Size':
@@ -226,7 +226,7 @@ def forge():
 
     # Create sample bookings for a specific room
     tianjin_exec_suite_king_room = Room.query.join(RoomType, BedType).filter(
-        Room.hotel.has(name='CBD Shangri-La', city='Tianjin, China'),
+        Room.hotel.has(name='CBD ShangLari', city='Tianjin, China'),
         RoomType.type_name == 'Executive Suite',
         BedType.bed_type == 'King Size'
     ).first()
