@@ -119,10 +119,6 @@ body, h1, p, ul, li, a {
     font-family: Montserrat, Verdana, Helvetica, Arial, sans-serif;
 }
 
-.search-input {
-    padding: 12px 40px 12px 10px;
-}
-
 .search-btn {
     padding: 12px 15px 12px 15px;
 }
@@ -778,13 +774,35 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     background-color: #ebb625;
 }
 
+
+
 @media (max-width: 905px) {
-    .search-box {
-        max-width: 335px;
+    .input-container {
+        margin-right: 0px;
+        max-width: 220px;
+    }
+}
+
+@media (max-width: 825px) {
+    .input-container {
+        margin-right: 0px;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 765px) {
+    .input-container {
+        margin-right: 0px;
+        max-width: 170px;
     }
 }
 
 @media (max-width: 700px) {
+    .input-container {
+        margin-right: 0px;
+        max-width: 145px;
+    }
+
     .reservation-form-container {
         width: 80%;
     }
@@ -831,6 +849,20 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
     .search-area-title {
         display: none;
+    }
+
+    .input-container {
+        margin-right: 10px;
+        max-width: 240px;
+    }
+
+    .search-box {
+        max-width: 330px;
+    }
+
+    .search-btn {
+        font-size: 16px;
+        padding: 12px 18px 12px 18px;
     }
 
     .search-box p {
