@@ -77,8 +77,8 @@ def forge():
 
     # Create sample room types and bed types
     room_types = [
-        RoomType(type_name='Deluxe Room', image_filename='images/bed1.jpg'),
-        RoomType(type_name='Executive Suite', image_filename='images/bed2.jpg')
+        RoomType(type_name='Deluxe', image_filename='images/bed1.jpg'),
+        RoomType(type_name='Executive', image_filename='images/bed2.jpg')
     ]
     bed_types = [
         BedType(bed_type='King Size'),
@@ -170,7 +170,7 @@ def forge():
 
                 if hotel.name == 'CBD ShangLari' and \
                    hotel.city == 'Tianjin, China' and \
-                   rt.type_name == 'Executive Suite' and \
+                   rt.type_name == 'Executive' and \
                    bt.bed_type == 'King Size':
                     available_quantity = 0
                     start_date = sold_out_start_date
@@ -227,7 +227,7 @@ def forge():
     # Create sample bookings for a specific room
     tianjin_exec_suite_king_room = Room.query.join(RoomType, BedType).filter(
         Room.hotel.has(name='CBD ShangLari', city='Tianjin, China'),
-        RoomType.type_name == 'Executive Suite',
+        RoomType.type_name == 'Executive',
         BedType.bed_type == 'King Size'
     ).first()
 

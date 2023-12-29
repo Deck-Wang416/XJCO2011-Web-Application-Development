@@ -72,7 +72,7 @@ function updateRoomList(rooms) {
         roomElement.innerHTML = `
             <img src="/static/${room.image_filename}" alt="${room.description}">
             <div class="hotel-info">
-                <h2>${room.type_name}</h2>
+                <h2>${room.type_name} Room</h2>
                 <p><strong>Bed Type:</strong> ${room.bed_type}</p>
                 <p><strong>Facilities:</strong> ${room.facilities}</p>
                 <div class="hotel-booking">

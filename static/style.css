@@ -374,10 +374,6 @@ footer {
     cursor: pointer;
 }
 
-.filter-mobile {
-    display: none;
-}
-
 .filter-option.selected {
     border-color: #000; 
     background-color: #fff;
@@ -774,8 +770,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     background-color: #ebb625;
 }
 
-
-
 @media (max-width: 905px) {
     .input-container {
         margin-right: 0px;
@@ -902,7 +896,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     .search-box {
         padding: 20px 10px;
     }
-    
+
     .hotel-entry img {
         flex-shrink: 0;
         width: 330px;
@@ -916,14 +910,6 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
     .hotel-info {
         margin-left: 0px;
-    }
-
-    .filter-pc {
-        display: none;
-    }
-
-    .filter-mobile {
-        display: inline-block;
     }
 
     .transparent-nav a {
