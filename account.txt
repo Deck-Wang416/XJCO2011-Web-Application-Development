@@ -1,0 +1,7 @@
+Common user
+ID: 15522761141
+Password: 20030416Wyf
+
+Admin user
+ID: 12345678910
+Password: 54Administrator
